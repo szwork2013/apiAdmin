@@ -1,0 +1,185 @@
+.autoComplete{
+  position: relative;
+  .auto_relate{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    display: block;
+    line-height: 30px;
+    position: absolute;
+    width: 100%;
+  }
+}
+.colorPick_input{
+  position: relative;
+  display: inline-block;
+  .triangle{
+    border-color: transparent transparent #e5e5e5;
+    border-style: solid;
+    border-width: 0 6px 6px;
+    height: 0;
+    left: 52px;
+    position: absolute;
+    top: -6px;
+    width: 0;
+    .inner-triangle{
+      border-color: transparent transparent #fff;
+      border-style: solid;
+      border-width: 0 4px 5px;
+      height: 0;
+      left: -4px;
+      position: absolute;
+      top: 1px;
+      width: 0;
+    }
+  }
+  .color-picker{
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #e5e5e5;
+    position: absolute;
+    width: 700px;
+    margin-top: 10px;
+    z-index: 10;
+    li{
+      cursor: pointer;
+      padding: 5px 10px;
+      width: 96px;
+      .active{background-color: #d7d7d7;}
+      &.active,&:hover{background-color: #d7d7d7}
+    }
+    .color{display: inline-block;}
+    .rgb-box{
+      border: 1px solid #ddd;
+      display: inline-block;
+      height: 11px;
+      margin-right: 5px;
+      vertical-align: middle;
+      width: 11px;
+    }
+    .group-list{
+      background: #fff none repeat scroll 0 0;
+      border-right: 1px solid #e5e5e5;
+      float: left;
+      padding: 0;
+      width: 116px;
+      li{width: 100%}
+    }
+    .color-list{
+      margin-left: 130px;
+      padding: 10px;
+    }
+    .search-list{
+      display: none;
+      p{
+        padding: 5px;
+        .search-item{
+          cursor: pointer;
+          padding: 5px;
+        }
+      }
+    }
+  }
+}
+
+/*treenode*/
+.angular-ui-tree-handle {
+  background: none repeat scroll 0 0 #f3f3f4;
+  border: 1px dashed #e7eaec;
+  color: inherit;
+  padding: 10px;
+  font-weight: normal;
+}
+.angular-ui-tree-handle:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+.angular-ui-tree-placeholder {
+  background: #f0f9ff;
+  border: 1px dashed #bed2db;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.group-title {
+  background-color: #687074 !important;
+  color: #FFF !important;
+}
+.tree-node {
+  background: none repeat scroll 0 0 #f3f3f4;
+  border: 1px dashed #e7eaec;
+  color: inherit;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.tree-node .btn {
+  min-width: 22px;
+  margin-right: 4px;
+}
+
+.tree-node-content {
+  margin: 5px 5px 5px 0;
+}
+.tree-nodes{
+  list-style: none;
+  padding-left: 40px;
+}
+.tree-root .tree-nodes:nth-child(1) {
+  padding-left: 0;
+}
+.tree-handle {
+  background: none repeat scroll 0 0 #f3f3f4;
+  border: 1px dashed #e7eaec;
+  color: inherit;
+  padding: 10px;
+}
+
+.angular-ui-tree-handle:hover {
+}
+
+.angular-ui-tree-placeholder {
+  background: #f0f9ff;
+  border: 1px dashed #bed2db;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/*treenode end*/
+
+/*Arealist*/
+.area-picker{
+  &>tbody>tr>td:nth-of-type(2){
+    text-align: left;
+  }
+  .chk_list {
+    margin-right: 2px;
+  }
+  .p_wrap {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 20px;
+    padding: 3px 5px;
+    position: relative;
+    .arrow_down{
+      .sub_ln{
+        color: #f60
+      }
+      .sub_list{
+        box-shadow: 5px 5px 8px #aaa;
+        display: none;
+        left: -90px;
+        padding: 5px 10px;
+        position: absolute;
+        top: 30px;
+        width: 250px;
+        z-index: 10;
+        label {
+          height: 30px;
+          margin: 3px;
+          overflow: hidden;
+          width: 70px;
+        }
+      }
+    }
+  }
+}
