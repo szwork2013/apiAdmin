@@ -9,7 +9,7 @@ const Header = React.createClass({
 
         var {pathname} = this.props.location,
             liArr = [];
-        var urlFirstPathReg = /\/([a-zA-Z0-9]+)\/?/;
+        var urlFirstPathReg = /\/([a-zA-Z0-9_]+)\/?/;
         var urlFirstPath = urlFirstPathReg.exec(pathname),
             urlFirstPath = urlFirstPath && urlFirstPath[1];
 
@@ -17,7 +17,9 @@ const Header = React.createClass({
             var nav = NavMap[key];
 
             var className = "";
-            if(["productmgr","categorymgr","stockmgr"].includes(urlFirstPath) && key == "allmgr"){
+            if(key == "allmgr" && ["productmgr","categorymgr","stockmgr"].includes(urlFirstPath)){
+                className = "active";
+            }else if(key == "renrengo" && ["notice_push","advert_put","order_manage","news_manage","member_manage"].includes(urlFirstPath)){
                 className = "active";
             }else if(urlFirstPath == key){
                 className = "active";

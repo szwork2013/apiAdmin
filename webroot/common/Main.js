@@ -1,8 +1,8 @@
 import React from 'react'
 import Navigation from './Navigation'
 import Footer from './Footer'
-import TopNavBar from './TopNavBar'
 import Header from './Header'
+require("../statics/less/renrengo.less");
 
 const Main = React.createClass({
     componentDidMount(){
@@ -16,9 +16,6 @@ const Main = React.createClass({
                     <Navigation {...this.props}/>
                 </div>
                 <div id="page-wrapper" className="gray-bg">
-                    <div>
-                        <TopNavBar/>
-                    </div>
                     <div>
                         {this.props.children}
                     </div>

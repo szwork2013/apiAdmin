@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router'
-import RouterMap from '../conf/RouterMap'
+import MiniSidebar from "./MiniSidebar"
 import NavMap from '../conf/NavMap'
 
 
@@ -9,39 +9,29 @@ const Navigation = React.createClass({
         console.log("did mount");
     },
     render(){
-        var main = {
-            usreName: 'zzz'
-        }
         var {pathname} = this.props.location,navigation;
 
-        var urlFirstPathReg = /\/([a-zA-Z0-9]+)\/?/;
+        var urlFirstPathReg = /\/([a-zA-Z0-9_]+)\/?/;
         var urlFirstPath = urlFirstPathReg.exec(pathname),
             urlFirstPath = urlFirstPath && urlFirstPath[1];
 
         if(["productmgr","categorymgr","stockmgr"].includes(urlFirstPath)){
             urlFirstPath = "allmgr";
         }
+        if(["notice_push","advert_put","order_manage","news_manage","member_manage"].includes(urlFirstPath)){
+            urlFirstPath = "renrengo";
+        }
         var navs = NavMap[urlFirstPath];
         return (
             <nav id="left_nav" className="navbar-default navbar-static-side" role="navigation">
                 <div className="sidebar-collapse">
                     <ul className="nav" id="side-menu">
+                        <li>
+                            <MiniSidebar />
+                        </li>
                         <li className="nav-header">
-                            <div className="dropdown profile-element">
-                                <a className="dropdown-toggle">
-                            <span className="clear">
-                                <span className="block m-t-xs">
-                                    <strong className="font-bold">{main.userName}</strong>
-                             </span>
-                                <span className="text-muted text-xs block">Example menu<b className="caret"></b></span>
-                            </span>
-                                </a>
-                                <ul className="dropdown-menu animated fadeInRight m-t-xs">
-                                    <li><a href="">Logout</a></li>
-                                </ul>
-                            </div>
-                            <div className="logo-element">
-                                YUN+
+                            <div style={{textAlign:"center"}}>
+                                <strong style={{fontSize:"18px",color:"#23c6c8"}}>{navs.title}</strong>
                             </div>
                         </li>
                         {

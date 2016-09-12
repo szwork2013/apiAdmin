@@ -4,7 +4,7 @@ var NavMap = {
         title: "API后台管理",
         url: "/appmanager/basicofig/index",
         level: "nav-first-level",
-        icon: "fa fa-th-large",
+        icon: "fa fa-joomla",
         subs: [
             {
                 id: "appmanager",
@@ -131,57 +131,79 @@ var NavMap = {
             }
 
         ]
-    },
+    }, //API后台管理
     renrengo: {
         id: "renrengo",
         title: "人人购管理",
-        url: "/renrengo/noticepush",
+        url: "/notice_push/push_message",
         level: "nav-first-level",
-        icon: "fa fa-th-large",
+        icon: "fa fa-binoculars",
         subs: [
             {
-                id: "noticepush",
                 title: "公告推送",
-                url: "/renrengo/noticepush",
-                icon: "fa fa-th-large",
-                level: "nav-second-level"
+                url: "/notice_push/push_message",
+                level: "nav-second-level",
+                icon: "fa fa-send",
+                subs: [
+                    {
+                        title: "推送消息",
+                        url: "/notice_push/push_message",
+                        level: "nav-third-level",
+                        icon: "fa fa-th-large"
+                    }
+                ]
             },
             {
-                id: "adauthor",
-                title: "广告授权",
-                url: "/renrengo/adauthor",
-                icon: "fa fa-th-large",
-                level: "nav-second-level"
+                id: "advertPut",
+                title: "广告投放",
+                url: "/advert_put",
+                level: "nav-second-level",
+                icon: "fa fa-puzzle-piece"
             },
             {
-                id: "ordermanager",
+                id: "orderManage",
                 title: "订单管理",
-                url: "/renrengo/ordermanager",
-                icon: "fa fa-th-large",
-                level: "nav-second-level"
+                url: "/order_manage/list",
+                level: "nav-second-level",
+                icon: "fa fa-outdent",
+                subs: [
+                    {
+                        id: "list",
+                        title: "订单列表",
+                        url: "/order_manage/list"
+                    }
+                ]
             },
             {
-                id: "newsmanager",
+                id: "newsManage",
                 title: "新闻管理",
-                url: "/renrengo/newsmanager",
-                icon: "fa fa-th-large",
-                level: "nav-second-level"
+                url: "/news_manage/list",
+                level: "nav-second-level",
+                icon: "fa fa-newspaper-o",
+                subs: [
+                    {
+                        title: "新闻列表",
+                        url: "/news_manage/list",
+                        level: "nav-third-level",
+                        icon: "fa fa-sitemap"
+                    }
+                ]
             },
             {
-                id: "membermanager",
+                id: "memberManage",
                 title: "会员管理",
-                url: "/renrengo/membermanager",
-                icon: "fa fa-users",
-                level: "nav-second-level"
+                url: "/member_manage",
+                level: "nav-second-level",
+                icon: "fa fa-vimeo-square"
             }
         ]
-    },
+    },//人人购管理
     allmgr:{
         id: "allmgr",
         title: "商品管理",
         url: "/productmgr/list",
         level: "nav-first-level",
-        icon: "fa fa-th-large",
+        icon: "fa fa-vimeo-square",
         subs: [
             {
                 id: "productmgr",
@@ -246,7 +268,51 @@ var NavMap = {
                 ]
             }
         ]
-    }
+    },  //商品管理
+    examine: {
+        id: "examine",
+        title: "资格审核",
+        url: "/examine/recharge",
+        level: "nav-first-level",
+        icon: "fa fa-adjust",
+        subs: [
+            {
+                id: "recharge",
+                title: "充值审核",
+                url: "/examine/recharge",
+                level: "nav-second-level",
+                icon: "fa fa-rmb"
+            },
+            {
+                id: "initfail",
+                title: "初审失败",
+                url: "/examine/initfail",
+                level: "nav-second-level",
+                icon: "fa fa-times-circle-o"
+            },
+            {
+                id: "re_check",
+                title: "充值复核",
+                url: "/examine/re_check",
+                level: "nav-second-level",
+                icon: "fa fa-dot-circle-o"
+            },
+            {
+                id: "success",
+                title: "充值成功",
+                url: "/examine/success",
+                level: "nav-second-level",
+                icon: "fa fa-check-square-o"
+            },
+            {
+                id: "recheck_fail",
+                title: "复核失败",
+                url: "/examine/recheck_fail",
+                level: "nav-second-level",
+                icon: "fa fa-warning"
+            }
+        ]
+    }//资格审核
     //productmgr: {
     //    id: "productmgr",
     //    title: "商品管理",
