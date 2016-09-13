@@ -1,10 +1,10 @@
 import React from 'react'
 import APPManager from '../components/APPManager'
-import ProdList from "../components/productmgr/List"
-import Specif from "../components/productmgr/Specif"
-import Attribute from "../components/productmgr/Attribute"
-import CateList from "../components/categorymgr/List"
-import StockList from '../components/stockmgr/List'
+import ProdList from "../components/productManager/productmgr/List"
+import Specif from "../components/productManager/productmgr/Specif"
+import Attribute from "../components/productManager/productmgr/Attribute"
+import CateList from "../components/productManager/categorymgr/List"
+import StockList from '../components/productManager/stockmgr/List'
 
 const ProductManagerRoute = {
     path: "productmgr",
