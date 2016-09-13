@@ -3,6 +3,7 @@ import Navigation from './Navigation'
 import Footer from './Footer'
 import Header from './Header'
 require("../statics/less/renrengo.less");
+require("../statics/less/product.less")
 
 const Main = React.createClass({
     componentDidMount(){
