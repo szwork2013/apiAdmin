@@ -962,6 +962,43 @@ const AreaPicker = React.createClass({
         })
     }
 })
+const SelectGroup = React.createClass({
+
+    render(){
+        /**
+         * categorys = [{list:[id:1,value:111,name: 3333],curr: 1}]
+         */
+        var {categorys} = this.props;
+        return (
+            <div>
+                {
+                    categorys.map( (selects,i) => {
+                        var options = selects.list || [];
+
+                        return <div className="col-sm-2" key={i+"_select"}>
+                            <select defaultValue={selects.curr || -1} name={categorys.length == (i+1) ? "pid" : ""} data-index={i} className="form-control" onChange={this.handleSelectChange}>
+                                <option value="-1">请选择</option>
+                                {
+                                    options.map(option => {
+                                        return <option key={option.id + "_option"} value={option.id}>{option.name}</option>
+                                    })
+                                }
+                            </select>
+                        </div>
+                    })
+                }
+            </div>
+        )
+    },
+    handleSelectChange(e){
+        var {ajaxCategory} = this.props;
+        var $element = $(e.target);
+        var optionID = $element.val();
+        var selIndex = $element.data("index");
+
+        ajaxCategory(optionID,selIndex);
+    }
+})
 export {
     BreadCrumb,
     IBoxTool,
@@ -969,5 +1006,6 @@ export {
     AutoComplete,
     ColorPicker,
     LayPage,
-    AreaPicker
+    AreaPicker,
+    SelectGroup
 }

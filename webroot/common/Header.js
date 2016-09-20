@@ -19,7 +19,7 @@ const Header = React.createClass({
             var className = "";
             if(key == "allmgr" && ["productmgr","categorymgr","stockmgr"].includes(urlFirstPath)){
                 className = "active";
-            }else if(key == "renrengo" && ["notice_push","advert_put","order_manage","news_manage","member_manage"].includes(urlFirstPath)){
+            }else if(key == "renrengo" && ["notice_push","advert_put","order_manage","news_manage","member_manage","recharge"].includes(urlFirstPath)){
                 className = "active";
             }else if(urlFirstPath == key){
                 className = "active";

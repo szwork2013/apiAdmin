@@ -184,8 +184,7 @@ var NavMap = {
                     {
                         title: "新闻列表",
                         url: "/news_manage/list",
-                        level: "nav-third-level",
-                        icon: "fa fa-sitemap"
+                        level: "nav-third-level"
                     }
                 ]
             },
@@ -195,6 +194,27 @@ var NavMap = {
                 url: "/member_manage",
                 level: "nav-second-level",
                 icon: "fa fa-vimeo-square"
+            },
+            {
+                id: "rechargeManage",
+                title: "充值管理",
+                url: "/recharge",
+                level: "nav-second-level",
+                icon: "fa fa-adjust",
+                subs: [
+                    {
+                        id: "r_index",
+                        title: "资格充值",
+                        url: "/recharge/index",
+                        level: "nav-third-level"
+                    },
+                    {
+                        id: "r_list",
+                        title: "充值记录",
+                        url: "/recharge/list",
+                        level: "nav-third-level"
+                    }
+                ]
             }
         ]
     },//人人购管理
@@ -313,69 +333,6 @@ var NavMap = {
             }
         ]
     }//资格审核
-    //productmgr: {
-    //    id: "productmgr",
-    //    title: "商品管理",
-    //    url: "/productmgr/list",
-    //    level: "nav-first-level",
-    //    icon: "fa fa-th-large",
-    //    subs: [
-    //        {
-    //            id: "list",
-    //            title: "商品列表",
-    //            url: "/productmgr/list",
-    //            level: "nav-second-level",
-    //            icon: "fa fa-th-large"
-    //        },
-    //        {
-    //            id: "specif",
-    //            title: "商品规格",
-    //            url: "/productmgr/specif",
-    //            level: "nav-second-level",
-    //            icon: "fa fa-th-large"
-    //        },
-    //        {
-    //            id: "attr",
-    //            title: "商品属性",
-    //            url: "/productmgr/attr",
-    //            level: "nav-second-level",
-    //            icon: "fa fa-th-large"
-    //        }
-    //    ]
-    //},
-    //categorymgr: {
-    //    id: "category",
-    //    title: "分类管理",
-    //    url: "/categorymgr/list",
-    //    level: "nav-first-level",
-    //    icon: "fa fa-sitemap",
-    //    subs: [
-    //        {
-    //            id: "categorylist",
-    //            title: "分类列表",
-    //            url: "/categorymgr/list",
-    //            level: "nav-second-level",
-    //            icon: "fa fa-sitemap"
-    //        }
-    //    ]
-    //},
-    //stockmgr: {
-    //    id: "stock",
-    //    title: "仓库管理",
-    //    url: "/stockmgr/list",
-    //    level: "nav-first-level",
-    //    icon: "fa fa-cubes",
-    //    subs: [
-    //        {
-    //            id: "stocklist",
-    //            title: "仓库列表",
-    //            url: "/stockmgr/list",
-    //            level: "nav-second-level",
-    //            icon: "fa fa-cubes"
-    //        }
-    //    ]
-    //}
-
 }
 
 export default NavMap;

@@ -18,7 +18,7 @@ const Navigation = React.createClass({
         if(["productmgr","categorymgr","stockmgr"].includes(urlFirstPath)){
             urlFirstPath = "allmgr";
         }
-        if(["notice_push","advert_put","order_manage","news_manage","member_manage"].includes(urlFirstPath)){
+        if(["notice_push","advert_put","order_manage","news_manage","member_manage","recharge"].includes(urlFirstPath)){
             urlFirstPath = "renrengo";
         }
         var navs = NavMap[urlFirstPath];
