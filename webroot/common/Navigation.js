@@ -13,14 +13,14 @@ const Navigation = React.createClass({
 
         var urlFirstPathReg = /\/([a-zA-Z0-9_]+)\/?/;
         var urlFirstPath = urlFirstPathReg.exec(pathname),
-            urlFirstPath = urlFirstPath && urlFirstPath[1];
+            urlFirstPath = urlFirstPath && urlFirstPath[1] || "notice_push";
 
-        if(["productmgr","categorymgr","stockmgr"].includes(urlFirstPath)){
-            urlFirstPath = "allmgr";
-        }
-        if(["notice_push","advert_put","order_manage","news_manage","member_manage","recharge"].includes(urlFirstPath)){
-            urlFirstPath = "renrengo";
-        }
+        //if(["productmgr","categorymgr","stockmgr"].includes(urlFirstPath)){
+        //    urlFirstPath = "allmgr";
+        //}
+        //if(["notice_push","advert_put","order_manage","news_manage","member_manage","recharge"].includes(urlFirstPath)){
+        //    urlFirstPath = "renrengo";
+        //}
         var navs = NavMap[urlFirstPath];
         return (
             <nav id="left_nav" className="navbar-default navbar-static-side" role="navigation">
