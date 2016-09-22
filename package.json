@@ -33,6 +33,7 @@
     "redux-thunk": "^2.1.0",
     "serve-favicon": "~2.3.0",
     "style-loader": "^0.13.1",
+    "react-date-picker-component": "a.b.c",
     "webpack": "^1.13.1"
   },
   "devDependencies": {

@@ -645,15 +645,14 @@ const BreadCrumb = React.createClass({
     }
 })
 const IBoxTool = React.createClass({
-
     render(){
-        var {children,title} = this.props;
+        var {children,title,hide} = this.props;
         return (
             <div className="ibox float-e-margins">
                 <div className="ibox-title">
-                    <h5>{title}</h5> <span className="label label-primary">YC+</span>
+                    <h5 dangerouslySetInnerHTML={{__html:title}}></h5> <span className="label label-primary">YC+</span>
                     <div className="ibox-tools dropdown">
-                        <a onClick={this.showhide} > <i className="fa fa-chevron-up"></i></a>
+                        <a onClick={this.showhide} > <i className={hide ? "fa fa-chevron-down" : "fa fa-chevron-up"}></i></a>
                         <a className="dropdown-toggle">
                             <i className="fa fa-wrench"></i>
                         </a>
@@ -666,7 +665,7 @@ const IBoxTool = React.createClass({
                         <a onClick={this.closebox} ><i className="fa fa-times"></i></a>
                     </div>
                 </div>
-                <div className="ibox-content clearfix">
+                <div className={"ibox-content clearfix " + (hide ? "none" : "")}>
                     {children}
                 </div>
             </div>
@@ -698,7 +697,7 @@ const LayPage = React.createClass({
             config: {
                 pages: 1,
                 curr: 1,
-                groups: 5,
+                groups: 10,
                 first: "首页",
                 last: "末页",
                 prev: "上一页",
@@ -706,11 +705,11 @@ const LayPage = React.createClass({
             }
         }
     },
-    componentDidMount(){
+    componentWillReceiveProps(nextProp){
         var newConf = Object.assign(
             {},
             this.state.config,
-            this.props.config
+            nextProp.config
         );
         this.setState({
             config: newConf
@@ -719,7 +718,6 @@ const LayPage = React.createClass({
     render(){
         var {config} = this.state;
         var view = [], dict = {};
-
         if(config.pages <= 1){
             return (<div className="noPage"></div>);
         }
