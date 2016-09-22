@@ -3,31 +3,37 @@ import {render} from 'react-dom'
 
 import { BreadCrumb, IBoxTool } from '../../../common/Birdie'
 import { EditInfo, EditAddress } from './List_edit'
+import {StateList,SyncStateList} from "../../../conf/Order_conf"
+import API from "../../../conf/API";
 
 const orderList = React.createClass({
-    clickHandle: function(event) {
 
-        var name = event.target.name;
-        var Template = (name == 'info') && EditInfo || EditAddress;
-
-        var box = document.getElementById('box');
-        render(<Template />, box);
-
-        var children;
-        box.childNodes.forEach(item => {
-            if(item.nodeType == 1) {
-                children = item;
-            }
-        });
-
-        $(children).modal('show');
+    getInitialState(){
+        return {
+            orderList: [],
+            count: 0,
+        }
     },
-
+    componentDidMount(){
+        $.ajax({
+            url: API.fenxiao_order.getOrderList,
+            success: function(data){
+                if(data.response_data){
+                    data = data.response_data;
+                    this.setState({
+                        orderList: data.list,
+                        count: data.count
+                    })
+                }
+            }.bind(this)
+        })
+    },
     render(){
         var crumbs = [
             {name: "订单管理", url:"/order_manage/list"},
             {name: "订单列表", url: "/order_manage/list"}
         ];
+        var {count,orderList} = this.state;
         return (
             <div className="orderManage_list">
                 <BreadCrumb crumbs={crumbs} title="订单管理"/>
@@ -86,7 +92,7 @@ const orderList = React.createClass({
                         </IBoxTool>
                     </div>
                     <div className="row">
-                        <IBoxTool title="总共：7546商品">
+                        <IBoxTool title={`总共：${count}商品`}>
                             <table className="table table-bordered order_list_table">
                                 <thead>
                                 <tr>
@@ -100,87 +106,84 @@ const orderList = React.createClass({
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" />22
-                                    </td>
-                                    <td>
-                                        <ul className="order_item_info clearfix">
-                                            <li>订单号:2389325945875542360</li>
-                                            <li>子订单:2389325945875542360</li>
-                                            <li>供货商：当当商品</li>
-                                            <li>用户名：巴丽红</li>
-                                            <li>会员编号：15055558888</li>
-                                            <li>手机号：13846575306</li>
-                                            <li>子订单状态：正常</li>
-                                            <li>物流名称：云仓快递</li>
-                                            <li>物流号：33581930064</li>
-                                            <li>物流状态：已发货</li>
-                                            <li>进货商品类型：进货</li>
-                                            <li>购物币：9619.880</li>
-                                            <li>购物券：293.400</li>
-                                            <li>购物金：0.00</li>
-                                            <li>进货币：0.000</li>
-                                            <li>退款时间：</li>
-                                            <li>子订单运费：15.00</li>
-                                            <li>物流信息：</li>
-                                            <li>当当订单号： 33700761754 </li>
-                                            <li>当当订单状态： 已送达 </li>
-                                            <li>收货时间：未确认收货</li>
-                                            <li>下单时间：2016-05-03 13:50:33</li>
-                                            <li>支付时间：2016-05-03 13:50:37</li>
-                                            <li>导出状态：已导出</li>
-                                            <li className="w-100p">地址：宏府小区六单元二零一室</li>
-                                        </ul>
-                                        <table className="table order_item_product no_mg">
-                                            <thead>
-                                            <tr>
-                                                <th>图片</th>
-                                                <th>ID</th>
-                                                <th>标题</th>
-                                                <th>单价</th>
-                                                <th>进价</th>
-                                                <th>最大优惠券使用金额</th>
-                                                <th>购买数量</th>
+                                {
+                                    orderList.map( (order,i) => {
+                                        return (
+                                            <tr key={order.id}>
+                                                <td><input type="checkbox" /> {order.id}</td>
+                                                <td>
+                                                    <ul className="order_item_info clearfix">
+                                                        <li>订单号:{order.order_number}</li>
+                                                        <li>子订单:{order.sub_order_number}</li>
+                                                        <li>供货商：云仓百货</li>
+                                                        <li>用户名：{order.username}</li>
+                                                        <li>会员编号：{order.userid}</li>
+                                                        <li>手机号：{order.mobile}</li>
+                                                        <li>子订单状态：{order.order_status}</li>
+                                                        <li>物流名称：{order.logistic_company}</li>
+                                                        <li>物流号：{order.logistic_number}</li>
+                                                        <li>物流状态：{order.logistic_status}</li>
+                                                        <li>进货商品类型：{order.buy_type}</li>
+                                                        <li>购物币：{order.amount}</li>
+                                                        <li>购物券：{order.suerpoint}</li>
+                                                        <li>购物金：{order.saccount}</li>
+                                                        <li>进货币：{order.purchase_account}</li>
+                                                        <li>退款时间：{order.refund_time}</li>
+                                                        <li>子订单运费：{order.logistic_fee}</li>
+                                                        <li>物流信息：{order.logistic_status}</li>
+                                                        <li>当当订单号： {order.dd_order_number} </li>
+                                                        <li>当当订单状态： {order.dd_state} </li>
+                                                        <li>收货时间：{order.receipt_time}</li>
+                                                        <li>下单时间：{order.create_date}</li>
+                                                        <li>支付时间：{order.pay_date}</li>
+                                                        <li>导出状态：{order.is_export == 1?'已导出' : '未导出'}</li>
+                                                        <li className="w-100p">地址：{order.address}</li>
+                                                    </ul>
+                                                    <table className="table order_item_product no_mg">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>图片</th>
+                                                            <th>ID</th>
+                                                            <th>标题</th>
+                                                            <th>单价</th>
+                                                            <th>进价</th>
+                                                            <th>最大优惠券使用金额</th>
+                                                            <th>购买数量</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {
+                                                            order.products.map( (product,i) => {
+                                                                return (
+                                                                    <tr key={product.id}>
+                                                                        <td>
+                                                                            <div className="image">
+                                                                                <img src={product.thumb} />
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>{product.id}</td>
+                                                                        <td>{product.title}</td>
+                                                                        <td>{product.price}</td>
+                                                                        <td>{product.purchase_price}</td>
+                                                                        <td>{product.coupon_max_amount}</td>
+                                                                        <td>{product.max_buy_num}</td>
+                                                                    </tr>
+                                                                )
+                                                            })
+                                                        }
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                                <td>{StateList[order.state]}</td>
+                                                <td>{SyncStateList[order.sync_state]}</td>
+                                                <td>
+                                                    <a className="btn btn-success mb-5" name="info" onClick={this.clickHandle}>编辑</a>
+                                                    <a className="btn btn-success" name="address" onClick={this.clickHandle}>编辑地址</a>
+                                                </td>
                                             </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div className="image">
-                                                            <img src="http://img3x3.ddimg.cn/97/13/60590473-1_u_201.jpg" />
-                                                        </div>
-                                                    </td>
-                                                    <td>60590473</td>
-                                                    <td>60590473</td>
-                                                    <td>60590473</td>
-                                                    <td>60590473</td>
-                                                    <td>60590473</td>
-                                                    <td>60590473</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div className="image">
-                                                            <img src="http://img3x3.ddimg.cn/97/13/60590473-1_u_201.jpg" />
-                                                        </div>
-                                                    </td>
-                                                    <td>60590473</td>
-                                                    <td>60590473</td>
-                                                    <td>60590473</td>
-                                                    <td>60590473</td>
-                                                    <td>60590473</td>
-                                                    <td>60590473</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                    <td>已支付</td>
-                                    <td>推单成功</td>
-                                    <td>
-                                        <a className="btn btn-success mb-5" name="info" onClick={this.clickHandle}>编辑</a>
-                                        <a className="btn btn-success" name="address" onClick={this.clickHandle}>编辑地址</a>
-                                    </td>
-                                </tr>
+                                        )
+                                    })
+                                }
                                 </tbody>
                             </table>
                         </IBoxTool>
@@ -188,6 +191,23 @@ const orderList = React.createClass({
                 </div>
             </div>
         )
+    },
+    clickHandle: function(event) {
+
+        var name = event.target.name;
+        var Template = (name == 'info') && EditInfo || EditAddress;
+
+        var box = document.getElementById('box');
+        render(<Template />, box);
+
+        var children;
+        box.childNodes.forEach(item => {
+            if(item.nodeType == 1) {
+                children = item;
+            }
+        });
+
+        $(children).modal('show');
     }
 })
 

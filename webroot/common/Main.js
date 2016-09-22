@@ -6,7 +6,14 @@ require("../statics/less/renrengo.less");
 require("../statics/less/product.less")
 
 const Main = React.createClass({
+    contextTypes: {
+        router: React.PropTypes.object
+    },
     componentDidMount(){
+        var {pathname} = this.props.location;
+        if(pathname == "/"){
+            this.context.router.push("/notice_push/push_message");
+        }
 
     },
     render(){
