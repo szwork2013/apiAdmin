@@ -8,6 +8,9 @@ var API = {
     fenxiao_order:{
         getOrderList: fenxiao_server[setServer] + "/order/order/get_order_list",
         getFailedList: fenxiao_server[setServer] + "/order/order/get_send_failed_list"
+    },
+    news_manage: {
+        getNewsList: fenxiao_server[setServer] + "/news/news/index"
     }
 }
 

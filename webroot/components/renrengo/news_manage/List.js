@@ -1,11 +1,19 @@
 import React from 'react'
 import {render} from 'react-dom'
 
+import API from "../../../conf/API"
 import { BreadCrumb, IBoxTool } from '../../../common/Birdie'
 import { EditInfo, EditAddress } from './List_edit'
 
 const NewsList = React.createClass({
-    clickHandle: function(event) {
+    getInitialState(){
+        return {
+            news: [],
+            sorts: []
+        }
+
+    },
+    clickHandle(event){
 
         var name = event.target.name;
         var Template = (name == 'info') && EditInfo || EditAddress;
@@ -22,12 +30,30 @@ const NewsList = React.createClass({
 
         $(children).modal('show');
     },
-
+    componentDidMount(){
+        $.ajax({
+            url: API.news_manage.getNewsList,
+            success: function(data){
+                if(data.data){
+                    data = data.data;
+                    this.setState({
+                        news: data.list,
+                        sorts: data.sort
+                    })
+                }
+            }.bind(this)
+        })
+    },
     render(){
         var crumbs = [
             {name: "新闻管理", url:"/order_manage/list"},
             {name: "新闻列表", url: "/order_manage/list"}
         ];
+        var {news,sorts} = this.state;
+        var sortObj = {};
+        for(var sort of sorts){
+            sortObj[sort.id] = sort.sortName
+        }
         return (
             <div>
                 <BreadCrumb crumbs={crumbs} title="新闻管理" />
@@ -46,15 +72,14 @@ const NewsList = React.createClass({
                                         <label className="col-sm-4 control-label" htmlFor="product_name">新闻类型:</label>
                                         <div className="col-sm-8">
                                             <select name="sortid" className="form-control">
-                                                <option value="0">请选择</option>
-                                                <option value="1">会员公告</option>
-                                                <option value="2">卖家公告</option>
-                                                <option value="3">最新动态</option>
-                                                <option value="4">绿韵会员公告</option>
-                                                <option value="5">绿韵卖家公告</option>
-                                                <option value="6">绿韵最新动态</option>
-                                                <option value="7">云仓资讯</option>
-                                                <option value="8">资料下载</option>
+                                                <option key="sort-1" value="-1">请选择</option>
+                                                {
+                                                    sorts.map(sort => {
+                                                        return (
+                                                            <option key={sort.id + "sort"} value={sort.id}>{sort.sortName}</option>
+                                                        )
+                                                    })
+                                                }
                                             </select>
                                         </div>
                                     </div>
@@ -77,6 +102,25 @@ const NewsList = React.createClass({
                                 </tr>
                                 </thead>
                                 <tbody>
+                                {
+                                    news.map( item => {
+                                        return (
+                                            <tr key={item.id+"new"}>
+                                                <td>
+                                                    {item.title}
+                                                </td>
+                                                <td>
+                                                    {sortObj[item.sortid]}
+                                                </td>
+                                                <td>{item.adddate}</td>
+                                                <td>
+                                                    <a className="btn btn-success mr-10" name="info" onClick={this.clickHandle}>修改</a>
+                                                    <a className="btn btn-success" name="address" onClick={this.clickHandle}>删除</a>
+                                                </td>
+                                            </tr>
+                                        )
+                                    })
+                                }
                                 <tr>
                                     <td>
                                         关于云仓百货即时通讯工具“仓仓”正式上线的公告
