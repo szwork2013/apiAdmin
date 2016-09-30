@@ -1,8 +1,11 @@
 import APPManager from '../components/APPManager'
+import EmptyContainer from "../components/EmptyContainer"
 
-import ADAuthor from '../components/renrengo/ADAauthor'
-import MemberManager from '../components/renrengo/MemberManager'
+import ADAuthor from '../components/renrengo/advert_put/Index'
+import MemberManager from '../components/renrengo/member_manage/Index'
+import MemberEdit from "../components/renrengo/member_manage/Edit"
 import NewsList from "../components/renrengo/news_manage/List"
+import NewsEdit from "../components/renrengo/news_manage/List_edit"
 import pushMessage from "../components/renrengo/notice_push/PushMessage"
 import orderList from "../components/renrengo/order_manage/List"
 import RechargeList from "../components/renrengo/recharge_manage/RechargeList"
@@ -23,7 +26,17 @@ export const NoticPushRoute = {
 //会员管理
 export const MemberManagerRoute = {
     path: "member_manage",
-    component: MemberManager
+    component: EmptyContainer,
+    childRoutes: [
+        {
+            path: "list",
+            component: MemberManager
+        },
+        {
+            path: "edit",
+            component: MemberEdit
+        }
+    ]
 }
 
 //新闻管理
@@ -34,6 +47,10 @@ export const NewManagerRoute = {
         {
             path: "list",
             component: NewsList
+        },
+        {
+            path: "edit",
+            component: NewsEdit
         }
     ]
 }

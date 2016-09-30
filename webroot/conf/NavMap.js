@@ -1,75 +1,75 @@
 var NavMap = {
-    notice_push:{
-        id: "noticePush",
-        title: "公告推送",
-        url: "/notice_push/push_message",
-        level: "nav-first-level",
-        icon: "fa fa-send",
-        subs: [
-            {
-                title: "推送消息",
-                url: "/notice_push/push_message",
-                level: "nav-second-level",
-                icon: "fa fa-th-large"
-            }
-        ]
-    },
-    advert_put: {
-        id: "advertPut",
-        title: "广告投放",
-        url: "/advert_put",
-        level: "nav-first-level",
-        icon: "fa fa-puzzle-piece",
-        subs: [
-            {
-                title: "广告投放",
-                url: "/advert_put",
-                level: "nav-second-level",
-                icon: "fa fa-puzzle-piece"
-            }
-        ]
-
-    },
-    order_manage: {
-        id: "orderManage",
-        title: "订单管理",
-        url: "/order_manage/list",
-        level: "nav-first-level",
-        icon: "fa fa-outdent",
-        subs: [
-            {
-                id: "list",
-                title: "订单列表",
-                url: "/order_manage/list",
-                level: "nav-second-level"
-            }
-        ]
-    },
-    news_manage: {
-        id: "newsManage",
-        title: "新闻管理",
-        url: "/news_manage/list",
-        level: "nav-first-level",
-        icon: "fa fa-newspaper-o",
-        subs: [
-            {
-                title: "新闻列表",
-                url: "/news_manage/list",
-                level: "nav-second-level",
-                icon: "fa fa-sitemap"
-            }
-        ]
-    },
+    //notice_push:{
+    //    id: "noticePush",
+    //    title: "公告推送",
+    //    url: "/notice_push/push_message",
+    //    level: "nav-first-level",
+    //    icon: "fa fa-send",
+    //    subs: [
+    //        {
+    //            title: "推送消息",
+    //            url: "/notice_push/push_message",
+    //            level: "nav-second-level",
+    //            icon: "fa fa-th-large"
+    //        }
+    //    ]
+    //},
+    //advert_put: {
+    //    id: "advertPut",
+    //    title: "广告投放",
+    //    url: "/advert_put",
+    //    level: "nav-first-level",
+    //    icon: "fa fa-puzzle-piece",
+    //    subs: [
+    //        {
+    //            title: "广告投放",
+    //            url: "/advert_put",
+    //            level: "nav-second-level",
+    //            icon: "fa fa-puzzle-piece"
+    //        }
+    //    ]
+    //
+    //},
+    //order_manage: {
+    //    id: "orderManage",
+    //    title: "订单管理",
+    //    url: "/order_manage/list",
+    //    level: "nav-first-level",
+    //    icon: "fa fa-outdent",
+    //    subs: [
+    //        {
+    //            id: "list",
+    //            title: "订单列表",
+    //            url: "/order_manage/list",
+    //            level: "nav-second-level"
+    //        }
+    //    ]
+    //},
+    //news_manage: {
+    //    id: "newsManage",
+    //    title: "新闻管理",
+    //    url: "/news_manage/list",
+    //    level: "nav-first-level",
+    //    icon: "fa fa-newspaper-o",
+    //    subs: [
+    //        {
+    //            title: "新闻列表",
+    //            url: "/news_manage/list",
+    //            level: "nav-second-level",
+    //            icon: "fa fa-sitemap"
+    //        }
+    //    ]
+    //},
     member_manage: {
         id: "memberManage",
         title: "会员管理",
-        url: "/member_manage",
+        url: "/member_manage/list",
         level: "nav-first-level",
         icon: "fa fa-vimeo-square",
         subs: [
             {
                 title: "会员管理",
-                url: "/member_manage",
+                url: "/member_manage/list",
                 level: "nav-second-level",
                 icon: "fa fa-vimeo-square"
             }

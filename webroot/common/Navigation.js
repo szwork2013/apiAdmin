@@ -3,17 +3,19 @@ import {Link} from 'react-router'
 import MiniSidebar from "./MiniSidebar"
 import NavMap from '../conf/NavMap'
 
-
 const Navigation = React.createClass({
     componentDidMount(){
         console.log("did mount");
     },
     render(){
-        var {pathname} = this.props.location,navigation;
+        var {appFirstPath,location} = this.props;
+        var {pathname} = location,navigation;
 
         var urlFirstPathReg = /\/([a-zA-Z0-9_]+)\/?/;
-        var urlFirstPath = urlFirstPathReg.exec(pathname),
-            urlFirstPath = urlFirstPath && urlFirstPath[1] || "notice_push";
+        var appFirstPath = appFirstPath == "" ? "" : "/" + appFirstPath;
+
+        var urlFirstPath = urlFirstPathReg.exec(pathname.replace(appFirstPath,"")),
+            urlFirstPath = urlFirstPath && urlFirstPath[1] || "member_manage";
 
         //if(["productmgr","categorymgr","stockmgr"].includes(urlFirstPath)){
         //    urlFirstPath = "allmgr";
@@ -39,7 +41,7 @@ const Navigation = React.createClass({
                                 var {subs,url,level,icon} = nav,
                                     subChildren = "",
                                     arrow = "",
-                                    link = <Link data-link="link" to={url}>
+                                    link = <Link data-link="link" to={appFirstPath + url}>
                                             <i className={icon}></i><span className="nav-label">{nav.title}</span>{arrow}
                                         </Link>
                                 if(subs && subs.length > 0){

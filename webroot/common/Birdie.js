@@ -814,7 +814,7 @@ const LayPage = React.createClass({
 })
 const ICheck = React.createClass({
     render(){
-        var {className} = this.props;
+        var {className,isChecked} = this.props;
         return (
             <div onClick={this.handleClick} className="icheckbox_square-green"  style={{position: "relative"}}>
                 <input onChange={this.handleChange} ref="checkbox" type="checkbox" className={className} style={{opacity: 0, cursor: "pointer"}}/>
@@ -964,11 +964,12 @@ const SelectGroup = React.createClass({
 
     render(){
         /**
-         * categorys = [{list:[id:1,value:111,name: 3333],curr: 1}]
+         * categorys = [{list:[{id:1,value:111,name: 3333}],curr: 1}];
          */
-        var {categorys} = this.props;
+        var {categorys,className,id="id",name="name",value="value"} = this.props;
+
         return (
-            <div>
+            <div className={className}>
                 {
                     categorys.map( (selects,i) => {
                         var options = selects.list || [];
@@ -978,7 +979,7 @@ const SelectGroup = React.createClass({
                                 <option value="-1">请选择</option>
                                 {
                                     options.map(option => {
-                                        return <option key={option.id + "_option"} value={option.id}>{option.name}</option>
+                                        return <option key={option[id] + "_option"} value={option[value]}>{option[name]}</option>
                                     })
                                 }
                             </select>

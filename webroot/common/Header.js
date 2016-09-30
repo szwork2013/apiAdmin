@@ -1,16 +1,19 @@
 import React from 'react'
 import {Link} from 'react-router'
 import NavMap from '../conf/NavMap';
+import API from "../conf/API"
 require("../statics/less/header.less");
 
 const Header = React.createClass({
 
     render(){
 
-        var {pathname} = this.props.location,
+        var {appFirstPath,location} = this.props;
+        var {pathname} = location,
             liArr = [];
+        var appFirstPath = appFirstPath == "" ? "" : "/" + appFirstPath;
         var urlFirstPathReg = /\/([a-zA-Z0-9_]+)\/?/;
-        var urlFirstPath = urlFirstPathReg.exec(pathname),
+        var urlFirstPath = urlFirstPathReg.exec(pathname.replace(appFirstPath,"")),
             urlFirstPath = urlFirstPath && urlFirstPath[1];
 
         for(var key in NavMap){
@@ -25,7 +28,7 @@ const Header = React.createClass({
                 className = "active";
             }
             liArr.push(<li key={nav.id} className={className}>
-                        <Link to={nav.url}><i className={nav.icon}></i><span className="nav-label">{nav.title}</span></Link>
+                        <Link to={appFirstPath + nav.url}><i className={nav.icon}></i><span className="nav-label">{nav.title}</span></Link>
                     </li>)
         }
 
@@ -39,8 +42,24 @@ const Header = React.createClass({
                         {liArr}
                     </ul>
                 </div>
+                <div className="welcomeUser">
+                    welcome: <span id="login_username"></span>
+                    <button onClick={this.logout} className="btn btn-primary btn-sm">退出</button>
+                </div>
             </header>
         )
+    },
+    logout(){
+        $.ajax({
+            url: API.public.getLogout,
+            success: function(data){
+                if(!data.error_code){
+                    window.location.href = "/login.html";
+                }else{
+                    alert(data.error_msg);
+                }
+            }
+        })
     }
 })
 export default Header;
