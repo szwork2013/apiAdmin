@@ -35,7 +35,7 @@ const Header = React.createClass({
         return (
             <header id="header" className="animated fadeInDown">
                 <div className="navbar-header">
-                    <a href="#" className="navbar-brand">云仓管理</a>
+                    <a href="#" className="navbar-brand">后台管理</a>
                 </div>
                 <div>
                     <ul className="nav navbar-nav">

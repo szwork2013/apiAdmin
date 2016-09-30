@@ -10,7 +10,8 @@ const MemberManager = React.createClass({
         return {
             members:[],
             total: 0,
-            curr: 1
+            curr: 1,
+            pages: 1
         }
     },
     contextTypes: {
