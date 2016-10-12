@@ -125,10 +125,15 @@ const NewsList = React.createClass({
                     )
                 }
                 {
-                    pages == "edit" && <EditInfo newID={newID}/>
+                    pages == "edit" && <EditInfo newID={newID} switchTo={this.switchTo}/>
                 }
             </div>
         )
+    },
+    switchTo: function(view){
+        this.setState({
+            pages: view
+        })
     }
 })
 

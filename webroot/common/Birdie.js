@@ -650,18 +650,20 @@ const IBoxTool = React.createClass({
         return (
             <div className="ibox float-e-margins">
                 <div className="ibox-title">
-                    <h5 dangerouslySetInnerHTML={{__html:title}}></h5> <span className="label label-primary">YC+</span>
+                    <h5 dangerouslySetInnerHTML={{__html:title}}></h5> {/*<span className="label label-primary">YC+</span>*/}
                     <div className="ibox-tools dropdown">
                         <a onClick={this.showhide} > <i className={hide ? "fa fa-chevron-down" : "fa fa-chevron-up"}></i></a>
-                        <a className="dropdown-toggle">
-                            <i className="fa fa-wrench"></i>
-                        </a>
-                        <ul className="dropdown-menu dropdown-user">
-                            <li><a href>Config option 1</a>
-                            </li>
-                            <li><a href>Config option 2</a>
-                            </li>
-                        </ul>
+                        {/*
+                         <a className="dropdown-toggle">
+                         <i className="fa fa-wrench"></i>
+                         </a>
+                         <ul className="dropdown-menu dropdown-user">
+                         <li><a href>Config option 1</a>
+                         </li>
+                         <li><a href>Config option 2</a>
+                         </li>
+                         </ul>
+                        */}
                         <a onClick={this.closebox} ><i className="fa fa-times"></i></a>
                     </div>
                 </div>

@@ -45,21 +45,21 @@ var NavMap = {
     //        }
     //    ]
     //},
-    //news_manage: {
-    //    id: "newsManage",
-    //    title: "新闻管理",
-    //    url: "/news_manage/list",
-    //    level: "nav-first-level",
-    //    icon: "fa fa-newspaper-o",
-    //    subs: [
-    //        {
-    //            title: "新闻列表",
-    //            url: "/news_manage/list",
-    //            level: "nav-second-level",
-    //            icon: "fa fa-sitemap"
-    //        }
-    //    ]
-    //},
+    news_manage: {
+        id: "newsManage",
+        title: "新闻管理",
+        url: "/news_manage/list",
+        level: "nav-first-level",
+        icon: "fa fa-newspaper-o",
+        subs: [
+            {
+                title: "新闻列表",
+                url: "/news_manage/list",
+                level: "nav-second-level",
+                icon: "fa fa-sitemap"
+            }
+        ]
+    },
     member_manage: {
         id: "memberManage",
         title: "会员管理",
@@ -75,6 +75,27 @@ var NavMap = {
             }
         ]
     },
+    recharge: {
+        id: "recharge",
+        title: "充值管理",
+        url: "/recharge/index",
+        level: "nav-first-level",
+        icon: "fa fa-adjust",
+        subs: [
+            {
+                id:"r_index",
+                title: "资格充值",
+                url: "/recharge/index"
+            },
+            {
+                id: "r_list",
+                url: "/recharge/list",
+                title: "充值记录",
+            }
+        ]
+
+    }
+
     //appmanager: {
     //    id: 'appmanager',
     //    title: "API后台管理",

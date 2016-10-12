@@ -8,7 +8,7 @@ import EmptyContainer from "./components/EmptyContainer"
 //import AppManagerRoute from './routes/Appmanager'
 //import APIManagerRoute from './routes/ApiManager'
 //import {ProductManagerRoute, CategoryManagerRoute, StockManagerRoute } from './routes/ProductManager'
-import {NoticPushRoute, AdvertPutRoute, OrderManagerRoute, NewManagerRoute, MemberManagerRoute} from "./routes/RenRenGO"
+import {NoticPushRoute, AdvertPutRoute, OrderManagerRoute, NewManagerRoute, MemberManagerRoute, RechargeManagerRoute} from "./routes/RenRenGO"
 //import ExamineRoute from './routes/Examine'
 const routes = {
     path: "/",
@@ -25,7 +25,7 @@ const routes = {
                 //ProductManagerRoute, CategoryManagerRoute, StockManagerRoute,
 
                 //RenRenGO
-                NoticPushRoute, AdvertPutRoute, OrderManagerRoute, NewManagerRoute, MemberManagerRoute,
+                NoticPushRoute, AdvertPutRoute, OrderManagerRoute, NewManagerRoute, MemberManagerRoute,RechargeManagerRoute,
 
                 //资质审核
                 //ExamineRoute

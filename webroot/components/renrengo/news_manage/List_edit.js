@@ -7,7 +7,8 @@ const EditInfo = React.createClass({
     getInitialState(){
         return {
             newInfo: {
-                title: ""
+                title: "",
+                review: ""
             },
             sorts: []
         }
@@ -17,13 +18,13 @@ const EditInfo = React.createClass({
         var _this = this;
         var {newID} = this.props;
         var {ueditor} = this.refs;
-        console.log(newID);
         $.ajax({
             url: API.news_manage.getNewsInfo,
             data: {
                 id: newID
             },
             success: function(data){
+
                 if(data.data){
                     data = data.data;
                     this.setState({
@@ -32,7 +33,7 @@ const EditInfo = React.createClass({
                     })
                     //自定义图片上传icon
                     this.registerImageUpload();
-
+                    UE.delEditor(ueditor);
                     _this.ueditor = UE.getEditor(ueditor);
                     _this.ueditor.ready(function () {
                         var imgUploadIcon = $("#container").find(".uploada")[0];
@@ -44,6 +45,7 @@ const EditInfo = React.createClass({
     },
     render(){
         var {newInfo,sorts} = this.state;
+        var {newID} = this.props;
         var crumbs = [
             {name: "新闻管理", url:`/${appFirstPath}/news_manage/list`},
             {name: "新闻列表", url: `/${appFirstPath}/news_manage/list`},
@@ -59,7 +61,8 @@ const EditInfo = React.createClass({
                                 <h5>编辑新闻</h5>
                             </div>
                             <div className="panel-body">
-                                <div className="form-horizontal">
+                                <form ref="newsForm" className="form-horizontal">
+                                    <input type="hidden" name="id" ref="newid" value={newID}/>
                                     <div className="form-group">
                                         <label className="control-label col-md-2 col-sm-2">新闻类型：</label>
                                         <div className="col-md-2 col-sm-3">
@@ -76,7 +79,7 @@ const EditInfo = React.createClass({
                                     <div className="form-group">
                                         <label className="control-label col-md-2">是否置顶：</label>
                                         <div className="col-md-10">
-                                            <input type="checkbox" />
+                                            <input name="isTop" type="checkbox" />
                                             选中后，新闻将优先在列表顶部显示。
                                         </div>
                                     </div>
@@ -89,7 +92,7 @@ const EditInfo = React.createClass({
                                     <div className="form-group">
                                         <label className="control-label col-md-2">新闻导读：</label>
                                         <div className="col-md-8">
-                                            <input type="text" name="review" className="form-control" onChange={this.handleChange}/>
+                                            <input type="text" name="review" className="form-control" onChange={this.handleChange} value={newInfo.review}/>
                                         </div>
                                         (可以为空)
                                     </div>
@@ -101,9 +104,9 @@ const EditInfo = React.createClass({
                                             </script>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                                 <div className="tc">
-                                    <button type="button" className="btn btn-default" data-dismiss="modal">关闭</button>{" "}
+                                    <button type="button" onClick={e=>{this.props.switchTo("list")}} className="btn btn-default" data-dismiss="modal">关闭</button>{" "}
                                     <button type="button" onClick={this.updateNew} className="btn btn-primary">保存</button>
                                 </div>
                             </div>
@@ -114,8 +117,25 @@ const EditInfo = React.createClass({
         )
     },
     updateNew(){
-        var content = this.ueditor.getContent();
-        console.log(content);
+        //var Uecontent = this.ueditor.getContent();
+        var {newsForm} = this.refs;
+        var {switchTo} = this.props;
+        var params = $(newsForm).serializeArray();
+        $.ajax({
+            type: "POST",
+            url: API.news_manage.updateNews,
+            data: params,
+            success: function(data){
+                if(data.data == 1){
+                    switchTo("list");
+                }
+            },
+            error: function(xhr){
+                console.log("Error");
+                console.log(xhr);
+            }
+        })
+
     },
     getUploadUrl(){
         return new Promise( (resolve, reject) => {
