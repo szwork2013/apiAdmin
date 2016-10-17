@@ -1,13 +1,20 @@
 import React from 'react'
 import Navigation from './Navigation'
+import NavMap from '../conf/NavMap'
 import Footer from './Footer'
 import Header from './Header'
 require("../statics/less/renrengo.less");
 require("../statics/less/product.less")
 
 const Main = React.createClass({
+    contextTypes: {
+        router: React.PropTypes.object
+    },
     componentDidMount(){
-
+        var {pathname} = this.props.location;
+        if(pathname == "/"){
+            this.context.router.push(NavMap.default.url);
+        }
     },
     render(){
         return (

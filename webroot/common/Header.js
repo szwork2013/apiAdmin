@@ -14,6 +14,7 @@ const Header = React.createClass({
             urlFirstPath = urlFirstPath && urlFirstPath[1];
 
         for(var key in NavMap){
+            if(key == "default") continue;
             var nav = NavMap[key];
 
             var className = "";

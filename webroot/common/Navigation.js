@@ -21,7 +21,7 @@ const Navigation = React.createClass({
         if(["notice_push","advert_put","order_manage","news_manage","member_manage","recharge"].includes(urlFirstPath)){
             urlFirstPath = "renrengo";
         }
-        var navs = NavMap[urlFirstPath];
+        var navs = NavMap[urlFirstPath] || NavMap['default'];
         return (
             <nav id="left_nav" className="navbar-default navbar-static-side" role="navigation">
                 <div className="sidebar-collapse">
