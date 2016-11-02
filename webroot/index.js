@@ -7,7 +7,7 @@ import AppManagerRoute from './routes/Appmanager'
 import APIManagerRoute from './routes/ApiManager'
 import {ProductManagerRoute, CategoryManagerRoute, StockManagerRoute } from './routes/ProductManager'
 import {NoticPushRoute, AdvertPutRoute, OrderManagerRoute, NewManagerRoute, MemberManagerRoute} from "./routes/RenRenGO"
-import ExamineRoute from './routes/Examine'
+//import ExamineRoute from './routes/Examine'
 const routes = {
     path: "/",
     component: Main,
@@ -23,7 +23,7 @@ const routes = {
         NoticPushRoute, AdvertPutRoute, OrderManagerRoute, NewManagerRoute, MemberManagerRoute,
 
         //资质审核
-        ExamineRoute
+        //ExamineRoute
     ]
 }
 render(<Router history={browserHistory} routes={routes}/>,document.getElementById("root"));

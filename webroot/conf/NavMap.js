@@ -292,50 +292,50 @@ var NavMap = {
             }
         ]
     },  //商品管理
-    examine: {
-        id: "examine",
-        title: "资格审核",
-        url: "/examine/recharge",
-        level: "nav-first-level",
-        icon: "fa fa-adjust",
-        subs: [
-            {
-                id: "recharge",
-                title: "充值审核",
-                url: "/examine/recharge",
-                level: "nav-second-level",
-                icon: "fa fa-rmb"
-            },
-            {
-                id: "initfail",
-                title: "初审失败",
-                url: "/examine/initfail",
-                level: "nav-second-level",
-                icon: "fa fa-times-circle-o"
-            },
-            {
-                id: "re_check",
-                title: "充值复核",
-                url: "/examine/re_check",
-                level: "nav-second-level",
-                icon: "fa fa-dot-circle-o"
-            },
-            {
-                id: "success",
-                title: "充值成功",
-                url: "/examine/success",
-                level: "nav-second-level",
-                icon: "fa fa-check-square-o"
-            },
-            {
-                id: "recheck_fail",
-                title: "复核失败",
-                url: "/examine/recheck_fail",
-                level: "nav-second-level",
-                icon: "fa fa-warning"
-            }
-        ]
-    }//资格审核
+    //examine: {
+    //    id: "examine",
+    //    title: "资格审核",
+    //    url: "/examine/recharge",
+    //    level: "nav-first-level",
+    //    icon: "fa fa-adjust",
+    //    subs: [
+    //        {
+    //            id: "recharge",
+    //            title: "充值审核",
+    //            url: "/examine/recharge",
+    //            level: "nav-second-level",
+    //            icon: "fa fa-rmb"
+    //        },
+    //        {
+    //            id: "initfail",
+    //            title: "初审失败",
+    //            url: "/examine/initfail",
+    //            level: "nav-second-level",
+    //            icon: "fa fa-times-circle-o"
+    //        },
+    //        {
+    //            id: "re_check",
+    //            title: "充值复核",
+    //            url: "/examine/re_check",
+    //            level: "nav-second-level",
+    //            icon: "fa fa-dot-circle-o"
+    //        },
+    //        {
+    //            id: "success",
+    //            title: "充值成功",
+    //            url: "/examine/success",
+    //            level: "nav-second-level",
+    //            icon: "fa fa-check-square-o"
+    //        },
+    //        {
+    //            id: "recheck_fail",
+    //            title: "复核失败",
+    //            url: "/examine/recheck_fail",
+    //            level: "nav-second-level",
+    //            icon: "fa fa-warning"
+    //        }
+    //    ]
+    //}//资格审核
 }
 
 export default NavMap;
