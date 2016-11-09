@@ -48,7 +48,7 @@ const appManager = {
             url: "/order_manage/list",
             level: "nav-second-level",
             icon: "fa fa-outdent",
-            subs: [
+            childRoutes: [
                 {
                     title: "订单列表",
                     path: "list",
@@ -64,7 +64,7 @@ const appManager = {
             url: "/news_manage/list",
             level: "nav-second-level",
             icon: "fa fa-newspaper-o",
-            subs: [
+            childRoutes: [
                 {
                     title: "新闻列表",
                     path: "list",
@@ -89,7 +89,7 @@ const appManager = {
             url: "/recharge",
             level: "nav-second-level",
             icon: "fa fa-adjust",
-            subs: [
+            childRoutes: [
                 {
                     title: "资格充值",
                     path: "index",

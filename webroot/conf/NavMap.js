@@ -1,7 +1,7 @@
 //import {apimanager} from "../routes/Appmanager"
 const apimanager = {
     id: 'apimanager',
-    title: "API后台管理",
+    title: "DEMO",
     url: "/apimanager/basicofig/index",
     level: "nav-first-level",
     icon: "fa fa-joomla",
@@ -33,31 +33,31 @@ const apimanager = {
                 },
                 {
                     id: "outnetcofig",
-                    title: "外网配置",
+                    title: "表单",
                     url: "/apimanager/outnet",
                     level: "nav-third-level",
                     subs: [
                         {
                             id: "accessurl",
                             url: "/apimanager/outnet/accessurl",
-                            title: "访问地址"
+                            title: "表单样式"
                         },
                         {
                             id: "ipsecure",
                             url: "/apimanager/outnet/ipsecure",
-                            title: "IP安全"
+                            title: "button样式"
                         }
                     ]
                 },
                 {
                     id: "innernet",
-                    title: "内网配置",
+                    title: "flot && chart",
                     url: "/apimanager/innernet",
                     level: "nav-third-level",
                     subs: [
-                        { id: "accessurl", url: "/apimanager/innernet/accessurl", title: "访问地址"},
-                        { id: "securegroup", url: "/apimanager/innernet/securegroup", title: "安全组"},
-                        { id: "secretManager", url: "/apimanager/innernet/secretmanager", title: "密钥管理"}
+                        { id: "accessurl", url: "/apimanager/innernet/accessurl", title: "chart demo"},
+                        { id: "securegroup", url: "/apimanager/innernet/securegroup", title: "ICON"},
+                        //{ id: "secretManager", url: "/apimanager/innernet/secretmanager", title: "密钥管理"}
                     ]
                 }
 
