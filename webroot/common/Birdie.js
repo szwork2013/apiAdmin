@@ -621,7 +621,7 @@ const TreeNode = React.createClass({
 const BreadCrumb = React.createClass({
 
     render(){
-        var {crumbs,title} = this.props;
+        var {crumbs=[],title} = this.props;
         return (
             <div className="row wrapper border-bottom white-bg page-heading">
                 <div className="col-lg-10">

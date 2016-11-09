@@ -20,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'webroot')));
+app.use(express.static(path.join(__dirname, 'webroot/statics')));
 app.use("/",(req,res,next) => {
   var indexPath = path.join(__dirname,"webroot/index.html");
 

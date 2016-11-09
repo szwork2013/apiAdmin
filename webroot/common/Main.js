@@ -13,7 +13,7 @@ const Main = React.createClass({
     componentDidMount(){
         var {pathname} = this.props.location;
         if(pathname == "/"){
-            this.context.router.push(NavMap.default.url);
+            this.context.router.push("/defaultPage");
         }
     },
     render(){

@@ -5,7 +5,7 @@ const MiniSidebar = React.createClass({
         $("body").toggleClass("mini-navbar");
         if (!$('body').hasClass('mini-navbar') || $('body').hasClass('body-small')) {
             $('#side-menu').hide();
-            $("#header .navbar-brand").text("云仓管理");
+            $("#header .navbar-brand").text("CMS");
             setTimeout(
                 function () {
                     $('#side-menu').fadeIn(500);
@@ -17,7 +17,7 @@ const MiniSidebar = React.createClass({
                     $('#side-menu').fadeIn(500);
                 }, 300);
         } else {
-            $("#header .navbar-brand").text("云仓");
+            $("#header .navbar-brand").text("CMS");
             $('#side-menu').removeAttr('style');
         }
     },

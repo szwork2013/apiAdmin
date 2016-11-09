@@ -7,12 +7,16 @@ import AppManagerRoute from './routes/Appmanager'
 import APIManagerRoute from './routes/ApiManager'
 import {ProductManagerRoute, CategoryManagerRoute, StockManagerRoute } from './routes/ProductManager'
 import {NoticPushRoute, AdvertPutRoute, OrderManagerRoute, NewManagerRoute, MemberManagerRoute} from "./routes/RenRenGO"
+import DefaultPage from "./components/DefaultPage"
 //import ExamineRoute from './routes/Examine'
 const routes = {
     path: "/",
     component: Main,
     childRoutes: [
-
+        {
+            path: "defaultPage",
+            component: DefaultPage
+        },
         //API后台管理
         AppManagerRoute,
 

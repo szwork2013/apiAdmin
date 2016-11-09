@@ -31,7 +31,7 @@ const Navigation = React.createClass({
                         </li>
                         <li className="nav-header">
                             <div style={{textAlign:"center"}}>
-                                <strong style={{fontSize:"18px",color:"#23c6c8"}}>{navs.title}</strong>
+                                <strong style={{fontSize:"18px",color:"#23c6c8"}}>xx</strong>
                             </div>
                         </li>
                         {
