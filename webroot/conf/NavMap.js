@@ -63,25 +63,25 @@ const apimanager = {
 
             ]
         },
-        {
-            id: "apimanager",
-            url: "/apimanager",
-            title: "API管理",
-            icon: "fa fa-stethoscope",
-            level: "nav-second-level",
-            subs: [
-                {
-                    id: "edit",
-                    url: "/apimanager/edit",
-                    title: "编辑"
-                },
-                {
-                    id: "deploy",
-                    url: "/apimanager/deploy",
-                    title: "部署"
-                }
-            ]
-        },
+        //{
+        //    id: "apimanager",
+        //    url: "/apimanager",
+        //    title: "API管理",
+        //    icon: "fa fa-stethoscope",
+        //    level: "nav-second-level",
+        //    subs: [
+        //        {
+        //            id: "edit",
+        //            url: "/apimanager/edit",
+        //            title: "编辑"
+        //        },
+        //        {
+        //            id: "deploy",
+        //            url: "/apimanager/deploy",
+        //            title: "部署"
+        //        }
+        //    ]
+        //},
         {
             id: "postman",
             title: "POSTMAN",
